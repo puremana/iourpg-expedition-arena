@@ -7,6 +7,7 @@ function exportUpdate() {
     var json = JSON.parse(raw);
     var ships = json["shipArena"];
 
+    //Ships
     if (ships["ships"] == 1) {
         setShip("current", "center", ships["ship1"]["weapon_level"], ships["ship1"]["reactor_level"], ships["ship1"]["hull_level"], ships["ship1"]["wings_level"]);
         setShip("current", "left", 0, 0, 0, 0);
@@ -22,6 +23,53 @@ function exportUpdate() {
         setShip("current", "left", ships["ship2"]["weapon_level"], ships["ship2"]["reactor_level"], ships["ship2"]["hull_level"], ships["ship2"]["wings_level"]);
         setShip("current", "right", ships["ship3"]["weapon_level"], ships["ship3"]["reactor_level"], ships["ship3"]["hull_level"], ships["ship3"]["wings_level"]);
     }
+    
+    //Bonuses
+    //Ship orb
+    if (json["soulOrbs"]["orbs"][12]["unlocked"] == true) {
+        switch (json["soulOrbs"]["orbs"][12]["rarity"]) {
+            case 1:
+                var shipBonus = 2 + (0.048 * json["soulOrbs"]["orbs"][12]["level"]);
+                break;
+            case 2:
+                var shipBonus = 8 + (0.08 * json["soulOrbs"]["orbs"][12]["level"]);
+                break;
+            case 3:
+                var shipBonus = 18 + (0.112 * json["soulOrbs"]["orbs"][12]["level"]);
+                break;
+            case 4:
+                var shipBonus = 32 + (0.144 * json["soulOrbs"]["orbs"][12]["level"]);
+                break;
+            case 5:
+                var shipBonus = 50 + (0.176 * json["soulOrbs"]["orbs"][12]["level"]);
+                break;
+            case 6:
+                var shipBonus = 72 + (0.208 * json["soulOrbs"]["orbs"][12]["level"]);
+                break;
+            case 7:
+                var shipBonus = 98 + (0.24 * json["soulOrbs"]["orbs"][12]["level"]);
+                break;
+        }
+        document.getElementById("bonus-shipOrb").value = shipBonus;
+    }
+    //Trophies
+    document.getElementById("bonus-trophyDMG").value = json["upgrades"]["trophy"]["shipDmg"]["level"];
+    document.getElementById("bonus-trophyHP").value = json["upgrades"]["trophy"]["shipHP"]["level"];
+    //Legendary
+    document.getElementById("bonus-Legendary").value = json["upgrades"]["legend"]["shipArenaDmg"]["level"];
+    //Ascension Upgrades
+    document.getElementById("bonus-ascDMG").value = (json["upgrades"]["ascension"]["shipDmg"]["level"] * 2);
+    document.getElementById("bonus-ascHP").value = (json["upgrades"]["ascension"]["shipHp"]["level"] * 2);
+    //Guild Bonuses are not included in JSON
+    //Update Total Inputs
+    updateBonusTotal();
+}
+
+function updateBonusTotal() {
+    var totalDMG = document.getElementById("bonus-shipOrb").value * document.getElementById("bonus-trophyDMG").value * document.getElementById("bonus-Legendary").value * document.getElementById("bonus-ascDMG").value * document.getElementById("bonus-guildLevel").value * document.getElementById("bonus-academyTotal").value;
+    var totalHP = document.getElementById("bonus-shipOrb").value * document.getElementById("bonus-trophyHP").value * document.getElementById("bonus-ascHP").value * document.getElementById("bonus-academyTotal").value;
+    document.getElementById("bonus-totalDMG").value = totalDMG;
+    document.getElementById("bonus-totalHP").value = totalHP;
 }
 
 //Copy Builds Functions
