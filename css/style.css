@@ -1,0 +1,67 @@
+/* Global */
+html {    
+    margin-top: -16px;
+}
+h6 {
+    font-size: 1em;
+    margin: 5px 0 5px 0;
+}
+/* Nav */
+nav {
+    text-align: center;
+    background-color: #0da3c9;
+    color: white;
+    height: 80px;
+    width: 100%;
+    line-height: 60px;
+    margin-top: -100px;
+    font-weight: 600;
+    font-size: 1.2em;
+    position: fixed;
+    z-index: 10;
+}
+nav li {
+  list-style: none;  
+  display: inline-block;
+  padding: 0 30px 0 30px;
+}
+/* Content */
+.content-container {
+    margin-top: 100px;
+    text-align: center;
+}
+.buttons-container {
+    margin-right: 0px;
+}
+.github-button {
+    background-color: #444444 !important;
+    color: white !important;
+}
+.github-button:hover {
+    background-color: #313131 !important;
+}
+.github-button img {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+.code {
+    background-color: rgb(90, 90, 90);
+    color: white;
+    border-radius: 5px;
+    padding: 1px 3px 1px 3px;
+}
+.tab-group-one, .tab-group-two {
+    width: 80vw;
+    margin: 0 auto 0 auto;
+}
+.ship-input {
+    display: inline-block;
+    width: 23%;
+}
+.ship-input input {
+    width: 23%;
+}
+.arena-level-container {
+    margin: 0 0 20px 0;
+}
