@@ -66,10 +66,10 @@ function exportUpdate() {
 }
 
 function updateBonusTotal() {
-    var totalDMG = document.getElementById("bonus-shipOrb").value * document.getElementById("bonus-trophyDMG").value * document.getElementById("bonus-Legendary").value * document.getElementById("bonus-ascDMG").value * document.getElementById("bonus-guildLevel").value * document.getElementById("bonus-academyTotal").value;
-    var totalHP = document.getElementById("bonus-shipOrb").value * document.getElementById("bonus-trophyHP").value * document.getElementById("bonus-ascHP").value * document.getElementById("bonus-academyTotal").value;
-    document.getElementById("bonus-totalDMG").value = totalDMG;
-    document.getElementById("bonus-totalHP").value = totalHP;
+    var totalDMG = (1 + (document.getElementById("bonus-shipOrb").value / 100)) * (1 + (document.getElementById("bonus-trophyDMG").value / 100)) * (1 + (document.getElementById("bonus-Legendary").value / 100)) * (1 + (document.getElementById("bonus-ascDMG").value / 100)) * (1 + (document.getElementById("bonus-guildLevel").value / 100)) * (1 + (document.getElementById("bonus-academyTotal").value / 100));
+    var totalHP = (1 + (document.getElementById("bonus-shipOrb").value / 100)) * (1 + (document.getElementById("bonus-trophyHP").value / 100)) * (1 + (document.getElementById("bonus-ascHP").value / 100)) * (1 + (document.getElementById("bonus-academyTotal").value / 100));
+    document.getElementById("bonus-totalDMG").value = totalDMG * 100 + "%";
+    document.getElementById("bonus-totalHP").value = totalHP * 100 + "%";
 }
 
 //Copy Builds Functions

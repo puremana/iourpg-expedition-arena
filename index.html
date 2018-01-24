@@ -350,25 +350,25 @@
                         <div class="ship-input">
                             <p>Ship Orb %</p>
                             <div class="ui input">
-                                <input type="text" id="bonus-shipOrb">
+                                <input type="text" id="bonus-shipOrb" onkeyup="updateBonusTotal()" value="0">
                             </div>
                         </div>
                         <div class="ship-input">
                                 <p>Trophy (AI Damage) %</p>
                                 <div class="ui input">
-                                    <input type="text" id="bonus-trophyDMG">
+                                    <input type="text" id="bonus-trophyDMG" onkeyup="updateBonusTotal()" value="0">
                                 </div>
                         </div>
                         <div class="ship-input">
                                 <p>Trophy (AI HP) %</p>
                                 <div class="ui input">
-                                    <input type="text" id="bonus-trophyHP">
+                                    <input type="text" id="bonus-trophyHP" onkeyup="updateBonusTotal()" value="0">
                                 </div>
                         </div>
                         <div class="ship-input">
                                 <p>Legendary %</p>
                                 <div class="ui input">
-                                    <input type="text" id="bonus-Legendary">
+                                    <input type="text" id="bonus-Legendary" onkeyup="updateBonusTotal()" value="0">
                                 </div>
                         </div>    
                     </div>
@@ -378,25 +378,25 @@
                         <div class="ship-input">
                             <p>Ascension Damage %</p>
                             <div class="ui input">
-                                <input type="text" id="bonus-ascDMG">
+                                <input type="text" id="bonus-ascDMG" onkeyup="updateBonusTotal()" value="0">
                             </div>
                         </div>
                         <div class="ship-input">
                                 <p>Ascension Health %</p>
                                 <div class="ui input">
-                                    <input type="text" id="bonus-ascHP">
+                                    <input type="text" id="bonus-ascHP" onkeyup="updateBonusTotal()" value="0">
                                 </div>
                         </div>
                         <div class="ship-input">
                                 <p>Guild Level %</p>
                                 <div class="ui input" data-tooltip="The JSON does not contain this value" data-position="top center">
-                                    <input type="text" id="bonus-guildLevel">
+                                    <input type="text" id="bonus-guildLevel" onkeyup="updateBonusTotal()" value="0">
                                 </div>
                         </div>
                         <div class="ship-input">
                                 <p>Total Space Academy %</p>
                                 <div class="ui input" data-tooltip="The JSON does not contain this value" data-position="top center">
-                                    <input type="text" id="bonus-academyTotal">
+                                    <input type="text" id="bonus-academyTotal" onkeyup="updateBonusTotal()" value="0">
                                 </div>
                         </div>    
                     </div>
@@ -413,7 +413,7 @@
                         <div class="ship-input">
                                 <p>Total Health %</p>
                                 <div class="ui input disabled">
-                                    <input type="text" id="bonus-totalHP">
+                                    <input type="text" id="bonus-totalHP">  
                                 </div>
                         </div>    
                     </div>
