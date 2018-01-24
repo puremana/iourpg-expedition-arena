@@ -1,7 +1,7 @@
 //Expedition Calculations
 //Global Variables
 
-
+//Export Button
 function exportUpdate() {
     var raw = document.getElementById("exportInput").value;
     var json = JSON.parse(raw);
@@ -24,6 +24,97 @@ function exportUpdate() {
     }
 }
 
+//Copy Builds Functions
+function copyToWanted() {
+    document.getElementById("wanted-center-weapon").value = document.getElementById("current-center-weapon").value;
+    document.getElementById("wanted-center-reactor").value = document.getElementById("current-center-reactor").value;
+    document.getElementById("wanted-center-hull").value = document.getElementById("current-center-hull").value;
+    document.getElementById("wanted-center-wings").value = document.getElementById("current-center-wings").value;
+
+    document.getElementById("wanted-left-weapon").value = document.getElementById("current-left-weapon").value;
+    document.getElementById("wanted-left-reactor").value = document.getElementById("current-left-reactor").value;
+    document.getElementById("wanted-left-hull").value = document.getElementById("current-left-hull").value;
+    document.getElementById("wanted-left-wings").value = document.getElementById("current-left-wings").value;
+
+    document.getElementById("wanted-right-weapon").value = document.getElementById("current-right-weapon").value;
+    document.getElementById("wanted-right-reactor").value = document.getElementById("current-right-reactor").value;
+    document.getElementById("wanted-right-hull").value = document.getElementById("current-right-hull").value;
+    document.getElementById("wanted-right-wings").value = document.getElementById("current-right-wings").value;
+}
+function copyToCurrent() {
+    document.getElementById("current-center-weapon").value = document.getElementById("wanted-center-weapon").value;
+    document.getElementById("current-center-reactor").value = document.getElementById("wanted-center-reactor").value;
+    document.getElementById("current-center-hull").value = document.getElementById("wanted-center-hull").value;
+    document.getElementById("current-center-wings").value = document.getElementById("wanted-center-wings").value;
+
+    document.getElementById("current-left-weapon").value = document.getElementById("wanted-left-weapon").value;
+    document.getElementById("current-left-reactor").value = document.getElementById("wanted-left-reactor").value;
+    document.getElementById("current-left-hull").value = document.getElementById("wanted-left-hull").value;
+    document.getElementById("current-left-wings").value = document.getElementById("wanted-left-wings").value;
+
+    document.getElementById("current-right-weapon").value = document.getElementById("wanted-right-weapon").value;
+    document.getElementById("current-right-reactor").value = document.getElementById("wanted-right-reactor").value;
+    document.getElementById("current-right-hull").value = document.getElementById("wanted-right-hull").value;
+    document.getElementById("current-right-wings").value = document.getElementById("wanted-right-wings").value;
+}
+
+//Copy to Clipboard Functions
+function copyCurrentClipboard(id) {
+    var string = "Expedition Arena Ships (Weapon/Reactor/Hull/Wings) \n" +
+    "Center: " + document.getElementById("current-center-weapon").value + ", " + document.getElementById("current-center-reactor").value + ", " + document.getElementById("current-center-hull").value + ", " + document.getElementById("current-center-wings").value + "\n" +
+    "Left: " + document.getElementById("current-left-weapon").value + ", " + document.getElementById("current-left-reactor").value + ", " + document.getElementById("current-left-hull").value + ", " + document.getElementById("current-left-wings").value + "\n" +
+    "Right: " + document.getElementById("current-right-weapon").value + ", " + document.getElementById("current-right-reactor").value + ", " + document.getElementById("current-right-hull").value + ", " + document.getElementById("current-right-wings").value;
+    //Drones are not added yet
+
+    copyToClipboard(string);
+    document.getElementById(id).innerHTML = "Copied!";
+    setTimeout(copiedChange, 600);
+}
+function copyWantedClipboard(id) {
+    var string = "Expedition Arena Ships (Weapon/Reactor/Hull/Wings) \n" +
+    "Center: " + document.getElementById("wanted-center-weapon").value + ", " + document.getElementById("wanted-center-reactor").value + ", " + document.getElementById("wanted-center-hull").value + ", " + document.getElementById("wanted-center-wings").value + "\n" +
+    "Left: " + document.getElementById("wanted-left-weapon").value + ", " + document.getElementById("wanted-left-reactor").value + ", " + document.getElementById("wanted-left-hull").value + ", " + document.getElementById("wanted-left-wings").value + "\n" +
+    "Right: " + document.getElementById("wanted-right-weapon").value + ", " + document.getElementById("wanted-right-reactor").value + ", " + document.getElementById("wanted-right-hull").value + ", " + document.getElementById("wanted-right-wings").value;
+    //Drones are not added yet
+
+    copyToClipboard(string);
+    document.getElementById(id).innerHTML = "Copied!";
+    setTimeout(copiedChange, 600);
+}
+function copyToClipboard(text) {
+    if (window.clipboardData && window.clipboardData.setData) {
+        // IE specific code path to prevent textarea being shown while dialog is visible.
+        return clipboardData.setData("Text", text); 
+    } 
+    else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+        var textarea = document.createElement("textarea");
+        textarea.textContent = text;
+        textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+        } catch (ex) {
+            alert("Copy to clipboard failed.", ex);
+            return false;
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+}
+function copiedChange(id) {
+    if (document.getElementById("clipboardCurrentButton").innerHTML == "Copied!") {
+        document.getElementById("clipboardCurrentButton").innerHTML = "Copy to Clipboard";
+    }
+    else if (document.getElementById("clipboardWantedButton").innerHTML == "Copied!") {
+        document.getElementById("clipboardWantedButton").innerHTML = "Copy to Clipboard";
+    }
+}
+//Calculate Button
+
+
+
+//Random Helper Functions
 function setShip(type, position, weapon, reactor, hull, wings) {
     if (type == "current") {
         if (position == "center") {

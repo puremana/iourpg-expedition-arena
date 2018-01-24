@@ -149,8 +149,8 @@
                     <div class="drones-container">
 
                     </div>
-                    <button class="ui yellow button">Copy to Wanted Build</button>
-                    <button class="ui green button">Copy to clipboard</button>
+                    <button class="ui yellow button" onclick="copyToWanted()">Copy to Wanted Build</button>
+                    <button class="ui green button" id="clipboardCurrentButton" onclick="copyCurrentClipboard('clipboardCurrentButton')">Copy to Clipboard</button>
                 </div>
             </div>
             <div class="ui bottom attached tab segment" id="second-one" data-tab="second-one">
@@ -246,8 +246,8 @@
                     <div class="drones-container">
 
                     </div>
-                    <button class="ui yellow button">Copy to Current Build</button>
-                    <button class="ui green button">Copy to clipboard</button>
+                    <button class="ui yellow button" onclick="copyToCurrent()">Copy to Current Build</button>
+                    <button class="ui green button" id="clipboardWantedButton" onclick="copyWantedClipboard('clipboardWantedButton')">Copy to Clipboard</button>
                 </div>
             </div>
             <div class="ui bottom attached tab segment" id="third-one" data-tab="third-one">
