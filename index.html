@@ -49,12 +49,12 @@
 
         <div class="tab-group-one">
             <div class="ui top attached tabular menu">
-                <a class="item active" data-tab="first-one">Current Build</a>
-                <a class="item" data-tab="second-one">Wanted Build</a>
-                <a class="item" data-tab="third-one">Calculated Build</a>
-                <a class="item" data-tab="third-one">Other Bonuses</a>
+                <div class="item active" id="first-one-link" data-tab="first-one" onclick="changeTab('first-one-link', 'first-one', 1)">Current Build</div>
+                <div class="item" id="second-one-link" data-tab="second-one" onclick="changeTab('second-one-link', 'second-one', 1)">Wanted Build</div>
+                <div class="item" id="third-one-link" data-tab="third-one" onclick="changeTab('third-one-link', 'third-one', 1)">Calculated Build</div>
+                <div class="item" id="fourth-one-link" data-tab="fourth-one" onclick="changeTab('fourth-one-link', 'fourth-one', 1)">Other Bonuses</div>
             </div>
-            <div class="ui bottom attached tab segment active" data-tab="first-one">
+            <div class="ui bottom attached tab segment active" id="first-one" data-tab="first-one">
                 <div class="tabs-area">
                     <h6>Center</h6>
                     <div class="ship-container">
@@ -144,15 +144,205 @@
                         </div>
                     </div>
                     <h6>Drones</h6>
-                    
+                    <div class="drones-container">
+
+                    </div>
+                    <button class="ui yellow button">Copy to Wanted Build</button>
+                    <button class="ui green button">Copy to clipboard</button>
                 </div>
-            <div class="ui bottom attached tab segment" data-tab="second-one">
-            Second
             </div>
-            <div class="ui bottom attached tab segment" data-tab="third-one">
-            Third
+            <div class="ui bottom attached tab segment" id="second-one" data-tab="second-one">
+                <div class="tabs-area">
+                    <h6>Center</h6>
+                    <div class="ship-container">
+                        <div class="ship">
+                            <div class="ship-input">
+                                <p>Weapon</p>
+                                <div class="ui input">
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Reactor</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Hull</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Wings</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>    
+                        </div>
+                    </div>
+                    <h6>Left</h6>
+                    <div class="ship-container">
+                        <div class="ship">
+                            <div class="ship-input">
+                                <p>Weapon</p>
+                                <div class="ui input">
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Reactor</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Hull</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Wings</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>    
+                        </div>
+                    </div>
+                    <h6>Right</h6>
+                    <div class="ship-container">
+                        <div class="ship">
+                            <div class="ship-input">
+                                <p>Weapon</p>
+                                <div class="ui input">
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Reactor</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Hull</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Wings</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>    
+                        </div>
+                    </div>
+                    <h6>Drones</h6>
+                    <div class="drones-container">
+
+                    </div>
+                    <button class="ui yellow button">Copy to Current Build</button>
+                    <button class="ui green button">Copy to clipboard</button>
+                </div>
             </div>
-            <div class="ui bottom attached tab segment" data-tab="fourth-one">
+            <div class="ui bottom attached tab segment" id="third-one" data-tab="third-one">
+                <div class="tabs-area">
+                    <h6>Center</h6>
+                    <div class="ship-container">
+                        <div class="ship">
+                            <div class="ship-input">
+                                <p>Weapon</p>
+                                <div class="ui input disabled">
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Reactor</p>
+                                    <div class="ui input disabled">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Hull</p>
+                                    <div class="ui input disabled">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Wings</p>
+                                    <div class="ui input disabled">
+                                        <input type="text">
+                                    </div>
+                            </div>    
+                        </div>
+                    </div>
+                    <h6>Left</h6>
+                    <div class="ship-container">
+                        <div class="ship">
+                            <div class="ship-input">
+                                <p>Weapon</p>
+                                <div class="ui input disabled">
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Reactor</p>
+                                    <div class="ui input disabled">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Hull</p>
+                                    <div class="ui input disabled">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Wings</p>
+                                    <div class="ui input disabled">
+                                        <input type="text">
+                                    </div>
+                            </div>    
+                        </div>
+                    </div>
+                    <h6>Right</h6>
+                    <div class="ship-container">
+                        <div class="ship">
+                            <div class="ship-input">
+                                <p>Weapon</p>
+                                <div class="ui input disabled">
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Reactor</p>
+                                    <div class="ui input disabled">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Hull</p>
+                                    <div class="ui input disabled">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Wings</p>
+                                    <div class="ui input disabled">
+                                        <input type="text">
+                                    </div>
+                            </div>    
+                        </div>
+                    </div>
+                    <h6>Drones</h6>
+                    <div class="drones-container">
+                    </div>
+                </div>
+            </div>
+            <div class="ui bottom attached tab segment" id="fourth-one" data-tab="fourth-one">
             Fourth
             </div>
         </div>
@@ -171,17 +361,17 @@
             <h4>Results</h4>
             <div class="tab-group-two">
                 <div class="ui top attached tabular menu">
-                    <a class="item active" data-tab="first-two">Current Build</a>
-                    <a class="item" data-tab="second-two">Wanted Build</a>
-                    <a class="item" data-tab="third-two">Calculated Build</a>
+                    <div class="item active" id="first-two-link" data-tab="first-two" onclick="changeTab('first-two-link', 'first-two', 2)">Current Build</div>
+                    <div class="item" id="second-two-link" data-tab="second-two" onclick="changeTab('second-two-link', 'second-two', 2)">Wanted Build</div>
+                    <div class="item" id="third-two-link" data-tab="third-two" onclick="changeTab('third-two-link', 'third-two', 2)">Calculated Build</div>
                 </div>
-                <div class="ui bottom attached tab segment active" data-tab="first-two">
+                <div class="ui bottom attached tab segment active" id="first-two" data-tab="first-two">
                 First
                 </div>
-                <div class="ui bottom attached tab segment" data-tab="second-two">
+                <div class="ui bottom attached tab segment" id="second-two" data-tab="second-two">
                 Second
                 </div>
-                <div class="ui bottom attached tab segment" data-tab="third-two">
+                <div class="ui bottom attached tab segment" id="third-two" data-tab="third-two" >
                 Third
                 </div>
             </div>

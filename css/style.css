@@ -25,14 +25,6 @@ nav li {
   display: inline-block;
   padding: 0 30px 0 30px;
 }
-/* Content */
-.content-container {
-    margin-top: 100px;
-    text-align: center;
-}
-.buttons-container {
-    margin-right: 0px;
-}
 .github-button {
     background-color: #444444 !important;
     color: white !important;
@@ -45,10 +37,18 @@ nav li {
     height: 12px;
     margin-right: 5px;
 }
+/* Content */
+.content-container {
+    margin-top: 100px;
+    text-align: center;
+}
+.export-button-container {
+    margin-bottom: 10px;
+}
 .code {
     background-color: rgb(90, 90, 90);
     color: white;
-    border-radius: 5px;
+    border-radius: 2px;
     padding: 1px 3px 1px 3px;
 }
 .tab-group-one, .tab-group-two {
@@ -64,4 +64,7 @@ nav li {
 }
 .arena-level-container {
     margin: 0 0 20px 0;
+}
+.item {
+    cursor: pointer;
 }
