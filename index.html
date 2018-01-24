@@ -26,10 +26,12 @@
             <li>Expedition Arena Calculator v0.1</li>
             <li>
                 <div class="buttons-container">
-                    <button class="ui button green">Info</button>
-                    <div class="ui button github-button">
-                        <img src="images/GitHub-Mark-Light-64px.png">Github
-                    </div>
+                    <a href="#info-link"><button class="ui button green">Info</button></a>
+                    <a href="https://github.com/puremana/iourpg-expedition-arena" target="_blank" rel="noreffer noopener">
+                        <div class="ui button github-button">
+                            <img src="images/GitHub-Mark-Light-64px.png">Github
+                        </div>
+                    </a>
                 </div>
             </li>
         </ul>
@@ -41,8 +43,8 @@
             <p>Use the <span class="code">/export</span> command by pressing F2</p>
             <div class="export-button-container">
                 <div class="ui action input">
-                    <input placeholder="Paste your Export Here" type="text">
-                    <button class="ui button blue">Update</button>
+                    <input placeholder="Paste your Export Here" type="text" id="exportInput">
+                    <button class="ui button blue" onclick="exportUpdate()">Update</button>
                 </div>
             </div>
         </div>
@@ -62,25 +64,25 @@
                             <div class="ship-input">
                                 <p>Weapon</p>
                                 <div class="ui input">
-                                    <input type="text">
+                                    <input type="text" id="current-center-weapon">
                                 </div>
                             </div>
                             <div class="ship-input">
                                     <p>Reactor</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="current-center-reactor">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Hull</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="current-center-hull">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Wings</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="current-center-wings">
                                     </div>
                             </div>    
                         </div>
@@ -91,25 +93,25 @@
                             <div class="ship-input">
                                 <p>Weapon</p>
                                 <div class="ui input">
-                                    <input type="text">
+                                    <input type="text" id="current-left-weapon">
                                 </div>
                             </div>
                             <div class="ship-input">
                                     <p>Reactor</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="current-left-reactor">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Hull</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="current-left-hull">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Wings</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="current-left-wings">
                                     </div>
                             </div>    
                         </div>
@@ -120,25 +122,25 @@
                             <div class="ship-input">
                                 <p>Weapon</p>
                                 <div class="ui input">
-                                    <input type="text">
+                                    <input type="text" id="current-right-weapon">
                                 </div>
                             </div>
                             <div class="ship-input">
                                     <p>Reactor</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="current-right-reactor">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Hull</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="current-right-hull">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Wings</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="current-right-wings">
                                     </div>
                             </div>    
                         </div>
@@ -159,25 +161,25 @@
                             <div class="ship-input">
                                 <p>Weapon</p>
                                 <div class="ui input">
-                                    <input type="text">
+                                    <input type="text" id="wanted-center-weapon">
                                 </div>
                             </div>
                             <div class="ship-input">
                                     <p>Reactor</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="wanted-center-reactor">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Hull</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="wanted-center-hull">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Wings</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="wanted-center-wings">
                                     </div>
                             </div>    
                         </div>
@@ -188,25 +190,25 @@
                             <div class="ship-input">
                                 <p>Weapon</p>
                                 <div class="ui input">
-                                    <input type="text">
+                                    <input type="text" id="wanted-left-weapon">
                                 </div>
                             </div>
                             <div class="ship-input">
                                     <p>Reactor</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="wanted-left-reactor">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Hull</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="wanted-left-hull">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Wings</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="wanted-left-wings">
                                     </div>
                             </div>    
                         </div>
@@ -217,25 +219,25 @@
                             <div class="ship-input">
                                 <p>Weapon</p>
                                 <div class="ui input">
-                                    <input type="text">
+                                    <input type="text" id="wanted-right-weapon">
                                 </div>
                             </div>
                             <div class="ship-input">
                                     <p>Reactor</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="wanted-right-reactor">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Hull</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="wanted-right-hull">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Wings</p>
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="text" id="wanted-right-wings">
                                     </div>
                             </div>    
                         </div>
@@ -256,25 +258,25 @@
                             <div class="ship-input">
                                 <p>Weapon</p>
                                 <div class="ui input disabled">
-                                    <input type="text">
+                                    <input type="text" id="calc-center-weapon">
                                 </div>
                             </div>
                             <div class="ship-input">
                                     <p>Reactor</p>
                                     <div class="ui input disabled">
-                                        <input type="text">
+                                        <input type="text" id="calc-center-reactor">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Hull</p>
                                     <div class="ui input disabled">
-                                        <input type="text">
+                                        <input type="text" id="calc-center-hull">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Wings</p>
                                     <div class="ui input disabled">
-                                        <input type="text">
+                                        <input type="text" id="calc-center-wings">
                                     </div>
                             </div>    
                         </div>
@@ -285,25 +287,25 @@
                             <div class="ship-input">
                                 <p>Weapon</p>
                                 <div class="ui input disabled">
-                                    <input type="text">
+                                    <input type="text" id="calc-left-weapon">
                                 </div>
                             </div>
                             <div class="ship-input">
                                     <p>Reactor</p>
                                     <div class="ui input disabled">
-                                        <input type="text">
+                                        <input type="text" id="calc-left-reactor">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Hull</p>
                                     <div class="ui input disabled">
-                                        <input type="text">
+                                        <input type="text" id="calc-left-hull">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Wings</p>
                                     <div class="ui input disabled">
-                                        <input type="text">
+                                        <input type="text" id="calc-left-wings">
                                     </div>
                             </div>    
                         </div>
@@ -314,25 +316,25 @@
                             <div class="ship-input">
                                 <p>Weapon</p>
                                 <div class="ui input disabled">
-                                    <input type="text">
+                                    <input type="text" id="calc-right-weapon">
                                 </div>
                             </div>
                             <div class="ship-input">
                                     <p>Reactor</p>
                                     <div class="ui input disabled">
-                                        <input type="text">
+                                        <input type="text" id="calc-right-reactor">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Hull</p>
                                     <div class="ui input disabled">
-                                        <input type="text">
+                                        <input type="text" id="calc-right-hull">
                                     </div>
                             </div>
                             <div class="ship-input">
                                     <p>Wings</p>
                                     <div class="ui input disabled">
-                                        <input type="text">
+                                        <input type="text" id="calc-right-wings">
                                     </div>
                             </div>    
                         </div>
