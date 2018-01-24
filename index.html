@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Description -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <meta name="author" content="Level & Quia">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/semantic.min.css">
+
+    <!-- Expedition Calculating Script -->
+    <script type="text/javascript" src="script.js"></script>
+
+    <title>IOURPG Expedition Arena Calculator</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <!-- Nav Bar -->
+    <nav>
+        <ul>
+            <li>Expedition Arena Calculator v0.1</li>
+        </ul>
+    </nav>
+
+    <!-- Content -->
+    <div class="content-container">
+        <div class="buttons-container">
+            <button class="ui button green">Info</button>
+            <div class="ui button github-button">
+                    <i class="heart icon"></i> Github
+            </div>
+        </div>
+
+        <div class="export-container">
+            <p>Use the <span class="code">/export</span> command by pressing F2</p>
+            <div class="export-button-container">
+                <div class="ui action input">
+                    <input placeholder="Paste your Export Here" type="text">
+                    <button class="ui button blue">Update</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-group-one">
+            <div class="ui top attached tabular menu">
+                <a class="item active" data-tab="first-one">Current Build</a>
+                <a class="item" data-tab="second-one">Wanted Build</a>
+                <a class="item" data-tab="third-one">Calculated Build</a>
+            </div>
+            <div class="ui bottom attached tab segment active" data-tab="first-one">
+                <div class="tabs-area">
+                    <h6>Center</h6>
+                    <div class="ship-container">
+                        <div class="ship">
+                            <div class="ship-input">
+                                <p>Weapon</p>
+                                <div class="ui input">
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Reactor</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Hull</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Wings</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>    
+                        </div>
+                    </div>
+                    <h6>Left</h6>
+                    <div class="ship-container">
+                        <div class="ship">
+                            <div class="ship-input">
+                                <p>Weapon</p>
+                                <div class="ui input">
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Reactor</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Hull</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Wings</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>    
+                        </div>
+                    </div>
+                    <h6>Right</h6>
+                    <div class="ship-container">
+                        <div class="ship">
+                            <div class="ship-input">
+                                <p>Weapon</p>
+                                <div class="ui input">
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Reactor</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Hull</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>
+                            <div class="ship-input">
+                                    <p>Wings</p>
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                            </div>    
+                        </div>
+                    </div>
+                    <h6>Drones</h6>
+                    
+                </div>
+            <div class="ui bottom attached tab segment" data-tab="second-one">
+            Second
+            </div>
+            <div class="ui bottom attached tab segment" data-tab="third-one">
+            Third
+            </div>
+        </div>
+        
+        <div class="arena-level-container">
+            <p>Arena Level</p>
+            <div class="arena-button-container">
+                <div class="ui action input">
+                    <input placeholder="Arena Level" type="text">
+                    <button class="ui button blue">Calculate</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="results">
+            <h4>Results</h4>
+            <div class="tab-group-two">
+                <div class="ui top attached tabular menu">
+                    <a class="item active" data-tab="first-two">Current Build</a>
+                    <a class="item" data-tab="second-two">Wanted Build</a>
+                    <a class="item" data-tab="third-two">Calculated Build</a>
+                </div>
+                <div class="ui bottom attached tab segment active" data-tab="first-two">
+                First
+                </div>
+                <div class="ui bottom attached tab segment" data-tab="second-two">
+                Second
+                </div>
+                <div class="ui bottom attached tab segment" data-tab="third-two">
+                Third
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="info-container">
+            <a name="info-link"></a>
+            <h2>Info</h2>
+            <p>This webapp is a calculator for the expedition arena on the game known as IOURPG.</p>
+            <p>A HUGE thank you to Quia who did all of the math behind the calc, making the entire thing possible.</p>
+        </div>
+    </div>
+
+  </body>
+</html>
