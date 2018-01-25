@@ -4,7 +4,7 @@ html {
 }
 h6 {
     font-size: 1em;
-    margin: 3px 0 3px 0;
+    margin: 1px 0 1px 0;
 }
 /* Nav */
 nav {
@@ -62,9 +62,40 @@ nav li {
 .ship-input input {
     width: 23%;
 }
+.ship-input p {
+    margin: 3px 0 8px 0;
+}
 .arena-level-container {
     margin: 0 0 20px 0;
 }
 .item {
     cursor: pointer;
+}
+.red {
+    color: red;
+}
+.green {
+    color: rgb(16, 173, 16);
+}
+.tab-group-two {
+    text-align: left;
+}
+.bold {
+    font-weight: 600;
+}
+.table {
+    width: 100%;
+}
+.drones-container {
+    margin: 0 0 15px 0;
+}
+.drone {
+    display: inline-block;
+    width: 120px;
+}
+.drone img {
+    width: 50px;
+}
+.drone input {
+    width: 100px;
 }

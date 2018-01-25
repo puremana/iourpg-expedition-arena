@@ -63,6 +63,11 @@ function exportUpdate() {
     //Guild Bonuses are not included in JSON
     //Update Total Inputs
     updateBonusTotal();
+    //Drones
+    // for (var i = 0; i < 5; i++) {
+    //     console.log("asdasd");
+    //     document.getElementById(droneType()).value = 
+    // }
 }
 
 function updateBonusTotal() {

@@ -147,7 +147,42 @@
                     </div>
                     <h6>Drones</h6>
                     <div class="drones-container">
-
+                        <div class="drone">
+                            <img src="images/drones/reflect.png">
+                            <div class="ui input">
+                                <input type="text" id="drone-current-reflector" value="0">
+                            </div>
+                        </div>
+                        <div class="drone">
+                                <img src="images/drones/deadly.png">
+                                <div class="ui input">
+                                    <input type="text" id="drone-current-deadly" value="0">
+                                </div>
+                        </div>
+                        <div class="drone">
+                                <img src="images/drones/penetrator.png">
+                                <div class="ui input">
+                                    <input type="text" id="drone-current-penetrator" value="0">
+                                </div>
+                        </div>
+                        <div class="drone">
+                                <img src="images/drones/leech.png">
+                                <div class="ui input">
+                                    <input type="text" id="drone-current-leech" value="0">
+                                </div>
+                        </div>
+                        <div class="drone">
+                                <img src="images/drones/regen.png">
+                                <div class="ui input">
+                                    <input type="text" id="drone-current-regen" value="0">
+                                </div>
+                        </div>
+                        <div class="drone">
+                                <img src="images/drones/absorption.png">
+                                <div class="ui input">
+                                    <input type="text" id="drone-current-absorption" value="0">
+                                </div>
+                        </div>
                     </div>
                     <button class="ui yellow button" onclick="copyToWanted()">Copy to Wanted Build</button>
                     <button class="ui green button" id="clipboardCurrentButton" onclick="copyCurrentClipboard('clipboardCurrentButton')">Copy to Clipboard</button>
@@ -244,7 +279,42 @@
                     </div>
                     <h6>Drones</h6>
                     <div class="drones-container">
-
+                        <div class="drone">
+                            <img src="images/drones/reflect.png">
+                            <div class="ui input">
+                                <input type="text" id="drone-wanted-reflector" value="0">
+                            </div>
+                        </div>
+                        <div class="drone">
+                                <img src="images/drones/deadly.png">
+                                <div class="ui input">
+                                    <input type="text" id="drone-wanted-deadly" value="0">
+                                </div>
+                        </div>
+                        <div class="drone">
+                                <img src="images/drones/penetrator.png">
+                                <div class="ui input">
+                                    <input type="text" id="drone-wanted-penetrator" value="0">
+                                </div>
+                        </div>
+                        <div class="drone">
+                                <img src="images/drones/leech.png">
+                                <div class="ui input">
+                                    <input type="text" id="drone-wanted-leech" value="0">
+                                </div>
+                        </div>
+                        <div class="drone">
+                                <img src="images/drones/regen.png">
+                                <div class="ui input">
+                                    <input type="text" id="drone-wanted-regen" value="0">
+                                </div>
+                        </div>
+                        <div class="drone">
+                                <img src="images/drones/absorption.png">
+                                <div class="ui input">
+                                    <input type="text" id="drone-wanted-absorption" value="0">
+                                </div>
+                        </div>
                     </div>
                     <button class="ui yellow button" onclick="copyToCurrent()">Copy to Current Build</button>
                     <button class="ui green button" id="clipboardWantedButton" onclick="copyWantedClipboard('clipboardWantedButton')">Copy to Clipboard</button>
@@ -440,7 +510,65 @@
                     <div class="item" id="third-two-link" data-tab="third-two" onclick="changeTab('third-two-link', 'third-two', 2)">Calculated Build</div>
                 </div>
                 <div class="ui bottom attached tab segment active" id="first-two" data-tab="first-two">
-                First
+                    <div class="status-container">
+                        <h4>Status</h4>
+                        <p id="status-p">Status: <span class="red">Failure</span></p>
+                        <p id="remaining-hp">Remaining HP: 123213</p>
+                        <h4>Overkill</h4>
+                        <div class="overkill-container">
+                        <table class="ui very basic collapsing celled table">
+                            <tbody>
+                                <tr>
+                                    <td><span class="bold">Center</span></td>
+                                    <td id="overkill-center">1232</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="bold">Left</span></td>
+                                    <td id="overkill-center">1232</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="bold">Right</span></td>
+                                    <td id="overkill-center">1232</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4>Statistics</h4>
+                        <table class="ui very basic collapsing celled table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Weapon</th>
+                                    <th>Reactor</th>
+                                    <th>Hull</th>
+                                    <th>Wings</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="bold">Center</span></td>
+                                    <td>123</td>
+                                    <td>123</td>
+                                    <td>123</td>
+                                    <td>123</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="bold">Left</span></td>
+                                    <td>123</td>
+                                    <td>123</td>
+                                    <td>123</td>
+                                    <td>123</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="bold">Right</span></td>
+                                    <td>123</td>
+                                    <td>123</td>
+                                    <td>123</td>
+                                    <td>123</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
                 </div>
                 <div class="ui bottom attached tab segment" id="second-two" data-tab="second-two">
                 Second
