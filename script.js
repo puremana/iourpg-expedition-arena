@@ -101,6 +101,13 @@ function copyToWanted() {
     document.getElementById("wanted-right-reactor").value = document.getElementById("current-right-reactor").value;
     document.getElementById("wanted-right-hull").value = document.getElementById("current-right-hull").value;
     document.getElementById("wanted-right-wings").value = document.getElementById("current-right-wings").value;
+
+    document.getElementById("drone-wanted-reflector").value = document.getElementById("drone-current-reflector").value;
+    document.getElementById("drone-wanted-deadly").value = document.getElementById("drone-current-deadly").value;
+    document.getElementById("drone-wanted-penetrator").value = document.getElementById("drone-current-penetrator").value;
+    document.getElementById("drone-wanted-leech").value = document.getElementById("drone-current-leech").value;
+    document.getElementById("drone-wanted-regen").value = document.getElementById("drone-current-regen").value;
+    document.getElementById("drone-wanted-absorption").value = document.getElementById("drone-current-absorption").value;
 }
 function copyToCurrent() {
     document.getElementById("current-center-weapon").value = document.getElementById("wanted-center-weapon").value;
@@ -117,6 +124,13 @@ function copyToCurrent() {
     document.getElementById("current-right-reactor").value = document.getElementById("wanted-right-reactor").value;
     document.getElementById("current-right-hull").value = document.getElementById("wanted-right-hull").value;
     document.getElementById("current-right-wings").value = document.getElementById("wanted-right-wings").value;
+
+    document.getElementById("drone-current-reflector").value = document.getElementById("drone-wanted-reflector").value;
+    document.getElementById("drone-current-deadly").value = document.getElementById("drone-wanted-deadly").value;
+    document.getElementById("drone-current-penetrator").value = document.getElementById("drone-wanted-penetrator").value;
+    document.getElementById("drone-current-leech").value = document.getElementById("drone-wanted-leech").value;
+    document.getElementById("drone-current-regen").value = document.getElementById("drone-wanted-regen").value;
+    document.getElementById("drone-current-absorption").value = document.getElementById("drone-wanted-absorption").value;
 }
 
 //Copy to Clipboard Functions
