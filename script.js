@@ -64,11 +64,19 @@ function exportUpdate() {
     //Update Total Inputs
     updateBonusTotal();
     //Drones
-    // for (var i = 0; i < 5; i++) {
-    //     console.log("asdasd");
-    //     document.getElementById(droneType()).value = 
-    // }
+    //Loop for the amount of drones you have
+    for (var i = 1; i <= json["shipArena"]["drones"]; i++) {
+        console.log(i);
+        var drone = "drone" + i;
+        var droneLevel = "dronelevel" + i;
+        if ((droneType[json["shipArena"][drone]]) != "inverter") {
+            document.getElementById(droneType[json["shipArena"][drone]]).value = json["shipArena"][droneLevel];
+        }
+    }
 }
+
+var droneTypeRaw = '{"1":"drone-current-regen", "2":"drone-current-leech", "3":"inverter", "4":"drone-current-penetrator", "5":"drone-current-reflector", "6":"drone-current-absorption", "7":"drone-current-deadly"}';
+var droneType = JSON.parse(droneTypeRaw);
 
 function updateBonusTotal() {
     var totalDMG = (1 + (document.getElementById("bonus-shipOrb").value / 100)) * (1 + (document.getElementById("bonus-trophyDMG").value / 100)) * (1 + (document.getElementById("bonus-Legendary").value / 100)) * (1 + (document.getElementById("bonus-ascDMG").value / 100)) * (1 + (document.getElementById("bonus-guildLevel").value / 100)) * (1 + (document.getElementById("bonus-academyTotal").value / 100));
