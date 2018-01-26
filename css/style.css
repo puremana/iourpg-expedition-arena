@@ -99,3 +99,34 @@ nav li {
 .drone input {
     width: 100px;
 }
+.difference-container {
+    width: 600px;
+    margin: 5px auto 5px auto;
+}
+.difference-container p {
+    display: inline;
+    padding: 0 5px 0 5px;
+}
+.top-tab-container {
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+.status-container, .statistics-container, .calculations-container {
+    display: inline-block;
+    vertical-align: top;
+    
+    padding: 5px 5px 5px 5px;
+}
+.status-container {
+    width: 160px;
+}
+.statistics-container {
+    width: 460px;
+}
+.calculations-container {
+    width: 500px;
+}
+.overkill-container {
+    width: 150px;
+}

@@ -318,6 +318,11 @@
                     </div>
                     <button class="ui yellow button" onclick="copyToCurrent()">Copy to Current Build</button>
                     <button class="ui green button" id="clipboardWantedButton" onclick="copyWantedClipboard('clipboardWantedButton')">Copy to Clipboard</button>
+                    <div class="difference-container">
+                        <p class="bold">Current Difference</p>
+                        <p id="difference-wanted-ult">Ultinum: 123</p>
+                        <p id="difference-wanted-imatter">i-Matter: 123</p>
+                    </div>
                 </div>
             </div>
             <div class="ui bottom attached tab segment" id="third-one" data-tab="third-one">
@@ -411,6 +416,49 @@
                     </div>
                     <h6>Drones</h6>
                     <div class="drones-container">
+                        <div class="drone">
+                            <img src="images/drones/reflect.png">
+                            <div class="ui input disabled">
+                                <input type="text" id="drone-calc-reflector">
+                            </div>
+                        </div>
+                        <div class="drone">
+                                <img src="images/drones/deadly.png">
+                                <div class="ui input disabled">
+                                    <input type="text" id="drone-calc-deadly">
+                                </div>
+                        </div>
+                        <div class="drone">
+                                <img src="images/drones/penetrator.png">
+                                <div class="ui input disabled">
+                                    <input type="text" id="drone-calc-penetrator">
+                                </div>
+                        </div>
+                        <div class="drone">
+                                <img src="images/drones/leech.png">
+                                <div class="ui input disabled">
+                                    <input type="text" id="drone-calc-leech">
+                                </div>
+                        </div>
+                        <div class="drone">
+                                <img src="images/drones/regen.png">
+                                <div class="ui input disabled">
+                                    <input type="text" id="drone-calc-regen">
+                                </div>
+                        </div>
+                        <div class="drone">
+                                <img src="images/drones/absorption.png">
+                                <div class="ui input disabled">
+                                    <input type="text" id="drone-calc-absorption">
+                                </div>
+                        </div>
+                    </div>
+                    <button class="ui yellow button" onclick="copyFromCalc('current')">Copy to Current Build</button>
+                    <button class="ui yellow button" onclick="copyFromCalc('wanted')">Copy to Wanted Build</button>
+                    <div class="difference-container">
+                        <p class="bold">Current Difference</p>
+                        <p id="difference-calc-ult">Ultinum: null</p>
+                        <p id="difference-calc-imatter">i-Matter: null</p>
                     </div>
                 </div>
             </div>
@@ -510,64 +558,140 @@
                     <div class="item" id="third-two-link" data-tab="third-two" onclick="changeTab('third-two-link', 'third-two', 2)">Calculated Build</div>
                 </div>
                 <div class="ui bottom attached tab segment active" id="first-two" data-tab="first-two">
-                    <div class="status-container">
-                        <h4>Status</h4>
-                        <p id="status-p">Status: <span class="red">Failure</span></p>
-                        <p id="remaining-hp">Remaining HP: 123213</p>
-                        <h4>Overkill</h4>
-                        <div class="overkill-container">
-                        <table class="ui very basic collapsing celled table">
-                            <tbody>
-                                <tr>
-                                    <td><span class="bold">Center</span></td>
-                                    <td id="overkill-center">1232</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="bold">Left</span></td>
-                                    <td id="overkill-center">1232</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="bold">Right</span></td>
-                                    <td id="overkill-center">1232</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <h4>Statistics</h4>
-                        <table class="ui very basic collapsing celled table">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Weapon</th>
-                                    <th>Reactor</th>
-                                    <th>Hull</th>
-                                    <th>Wings</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><span class="bold">Center</span></td>
-                                    <td>123</td>
-                                    <td>123</td>
-                                    <td>123</td>
-                                    <td>123</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="bold">Left</span></td>
-                                    <td>123</td>
-                                    <td>123</td>
-                                    <td>123</td>
-                                    <td>123</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="bold">Right</span></td>
-                                    <td>123</td>
-                                    <td>123</td>
-                                    <td>123</td>
-                                    <td>123</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="top-tab-container">
+                        <div class="status-container">
+                            <h4>Status</h4>
+                            <p id="status-p">Status: <span class="red">Failure</span></p>
+                            <p id="remaining-hp">Remaining HP: 123213</p>
+                            <div class="overkill-container">
+                                    <table class="ui celled striped table">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Overkill</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span class="bold">Center</span></td>
+                                                <td id="overkill-center">null</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="bold">Left</span></td>
+                                                <td id="overkill-center">null</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="bold">Right</span></td>
+                                                <td id="overkill-center">null</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                        </div>
+                        <div class="statistics-container">
+                            <h4>Statistics</h4>
+                            <table class="ui celled striped table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Damage</th>
+                                        <th>Speed</th>
+                                        <th>Reactor</th>
+                                        <th>HP</th>
+                                        <th>Effective HP</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="bold">Center</span></td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bold">Left</span></td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bold">Right</span></td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bold">Enemy</span></td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="calculations-container">
+                            <h4>Calculations</h4>
+                            <table class="ui celled striped table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>HP Req</th>
+                                        <th>HP per Hull</th>
+                                        <th>Ulti per HP</th>
+                                        <th>HP per Reactor</th>
+                                        <th>Total Hits</th>
+                                        <th>Damage Inc</th>
+                                        <th>Total Damage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="bold">Center</span></td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bold">Left</span></td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bold">Right</span></td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+                    <div class="simulation">
+                        <h3>Simulation</h3>
+                        <div id="simulation-current">
+                            <p>asdasd</p>
+                        </div>
                     </div>
                 </div>
                 <div class="ui bottom attached tab segment" id="second-two" data-tab="second-two">

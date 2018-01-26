@@ -132,7 +132,54 @@ function copyToCurrent() {
     document.getElementById("drone-current-regen").value = document.getElementById("drone-wanted-regen").value;
     document.getElementById("drone-current-absorption").value = document.getElementById("drone-wanted-absorption").value;
 }
+function copyFromCalc(type) {
+    if (type == "current") {
+        document.getElementById("current-center-weapon").value = document.getElementById("calc-center-weapon").value;
+        document.getElementById("current-center-reactor").value = document.getElementById("calc-center-reactor").value;
+        document.getElementById("current-center-hull").value = document.getElementById("calc-center-hull").value;
+        document.getElementById("current-center-wings").value = document.getElementById("calc-center-wings").value;
 
+        document.getElementById("current-left-weapon").value = document.getElementById("calc-left-weapon").value;
+        document.getElementById("current-left-reactor").value = document.getElementById("calc-left-reactor").value;
+        document.getElementById("current-left-hull").value = document.getElementById("calc-left-hull").value;
+        document.getElementById("current-left-wings").value = document.getElementById("calc-left-wings").value;
+
+        document.getElementById("current-right-weapon").value = document.getElementById("calc-right-weapon").value;
+        document.getElementById("current-right-reactor").value = document.getElementById("calc-right-reactor").value;
+        document.getElementById("current-right-hull").value = document.getElementById("calc-right-hull").value;
+        document.getElementById("current-right-wings").value = document.getElementById("calc-right-wings").value;
+
+        document.getElementById("drone-current-reflector").value = document.getElementById("drone-calc-reflector").value;
+        document.getElementById("drone-current-deadly").value = document.getElementById("drone-calc-deadly").value;
+        document.getElementById("drone-current-penetrator").value = document.getElementById("drone-calc-penetrator").value;
+        document.getElementById("drone-current-leech").value = document.getElementById("drone-calc-leech").value;
+        document.getElementById("drone-current-regen").value = document.getElementById("drone-calc-regen").value;
+        document.getElementById("drone-current-absorption").value = document.getElementById("drone-calc-absorption").value;
+    }
+    else if (type == "wanted") {
+        document.getElementById("wanted-center-weapon").value = document.getElementById("calc-center-weapon").value;
+        document.getElementById("wanted-center-reactor").value = document.getElementById("calc-center-reactor").value;
+        document.getElementById("wanted-center-hull").value = document.getElementById("calc-center-hull").value;
+        document.getElementById("wanted-center-wings").value = document.getElementById("calc-center-wings").value;
+
+        document.getElementById("wanted-left-weapon").value = document.getElementById("calc-left-weapon").value;
+        document.getElementById("wanted-left-reactor").value = document.getElementById("calc-left-reactor").value;
+        document.getElementById("wanted-left-hull").value = document.getElementById("calc-left-hull").value;
+        document.getElementById("wanted-left-wings").value = document.getElementById("calc-left-wings").value;
+
+        document.getElementById("wanted-right-weapon").value = document.getElementById("calc-right-weapon").value;
+        document.getElementById("wanted-right-reactor").value = document.getElementById("calc-right-reactor").value;
+        document.getElementById("wanted-right-hull").value = document.getElementById("calc-right-hull").value;
+        document.getElementById("wanted-right-wings").value = document.getElementById("calc-right-wings").value;
+
+        document.getElementById("drone-wanted-reflector").value = document.getElementById("drone-calc-reflector").value;
+        document.getElementById("drone-wanted-deadly").value = document.getElementById("drone-calc-deadly").value;
+        document.getElementById("drone-wanted-penetrator").value = document.getElementById("drone-calc-penetrator").value;
+        document.getElementById("drone-wanted-leech").value = document.getElementById("drone-calc-leech").value;
+        document.getElementById("drone-wanted-regen").value = document.getElementById("drone-calc-regen").value;
+        document.getElementById("drone-wanted-absorption").value = document.getElementById("drone-calc-absorption").value;
+    }
+}
 //Copy to Clipboard Functions
 function copyCurrentClipboard(id) {
     var string = "Expedition Arena Ships (Weapon/Reactor/Hull/Wings) \n" +
