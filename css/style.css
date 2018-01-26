@@ -130,3 +130,28 @@ nav li {
 .overkill-container {
     width: 150px;
 }
+.italic {
+    font-style: italic;
+}
+textarea {
+    overflow: auto; 
+    line-height: 1em;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    height: 40px;
+    padding: 11px 0 10px 13px;
+    border: 1px solid rgba(34,36,38,.15);
+    color: rgba(0,0,0,.87);
+    transition: box-shadow .1s ease,border-color .1s ease;
+    box-shadow: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+textarea:active {
+    border-color: #85B7D9;
+}
+textarea:focus {
+    border-color: #85B7D9;
+}
+textarea::placeholder {
+    color: #BEBEBE;
+}
