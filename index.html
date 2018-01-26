@@ -562,7 +562,7 @@
                         <div class="status-container">
                             <h4>Status</h4>
                             <p id="status-p">Status: <span class="red">Failure</span></p>
-                            <p id="remaining-hp">Remaining HP: 123213</p>
+                            <p id="remaining-hp">Remaining HP:</p>
                             <div class="overkill-container">
                                     <table class="ui celled striped table">
                                         <thead>
@@ -574,15 +574,15 @@
                                         <tbody>
                                             <tr>
                                                 <td><span class="bold">Center</span></td>
-                                                <td id="overkill-center">null</td>
+                                                <td id="current-overkill-center">null</td>
                                             </tr>
                                             <tr>
                                                 <td><span class="bold">Left</span></td>
-                                                <td id="overkill-center">null</td>
+                                                <td id="current-overkill-center">null</td>
                                             </tr>
                                             <tr>
                                                 <td><span class="bold">Right</span></td>
-                                                <td id="overkill-center">null</td>
+                                                <td id="current-overkill-center">null</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -604,35 +604,35 @@
                                 <tbody>
                                     <tr>
                                         <td><span class="bold">Center</span></td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
+                                        <td id="current-center-stats-damage">null</td>
+                                        <td id="current-center-stats-speed">null</td>
+                                        <td id="current-center-stats-reactor">null</td>
+                                        <td id="current-center-stats-hp">null</td>
+                                        <td id="current-center-stats-effhp">null</td>
                                     </tr>
                                     <tr>
                                         <td><span class="bold">Left</span></td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
+                                        <td id="current-left-stats-damage">null</td>
+                                        <td id="current-left-stats-speed">null</td>
+                                        <td id="current-left-stats-reactor">null</td>
+                                        <td id="current-left-stats-hp">null</td>
+                                        <td id="current-left-stats-effhp">null</td>
                                     </tr>
                                     <tr>
                                         <td><span class="bold">Right</span></td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
+                                        <td id="current-right-stats-damage">null</td>
+                                        <td id="current-right-stats-speed">null</td>
+                                        <td id="current-right-stats-reactor">null</td>
+                                        <td id="current-right-stats-hp">null</td>
+                                        <td id="current-right-stats-effhp">null</td>
                                     </tr>
                                     <tr>
                                         <td><span class="bold">Enemy</span></td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
+                                        <td id="current-enemy-stats-damage">null</td>
+                                        <td id="current-enemy-stats-speed">null</td>
+                                        <td id="current-enemy-stats-reactor">null</td>
+                                        <td id="current-enemy-stats-hp">null</td>
+                                        <td id="current-enemy-stats-effhp">null</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -655,33 +655,33 @@
                                 <tbody>
                                     <tr>
                                         <td><span class="bold">Center</span></td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
+                                        <td id="current-center-calc-hpreq">null</td>
+                                        <td id="current-center-calc-hpnull">null</td>
+                                        <td id="current-center-calc-ulthp">null</td>
+                                        <td id="current-center-calc-hpperreact">null</td>
+                                        <td id="current-center-calc-totalhits">null</td>
+                                        <td id="current-center-calc-damageinc">null</td>
+                                        <td id="current-center-calc-totaldamage">null</td>
                                     </tr>
                                     <tr>
                                         <td><span class="bold">Left</span></td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
+                                        <td id="current-left-calc-hpreq">null</td>
+                                        <td id="current-left-calc-hpnull">null</td>
+                                        <td id="current-left-calc-ulthp">null</td>
+                                        <td id="current-left-calc-hpperreact">null</td>
+                                        <td id="current-left-calc-totalhits">null</td>
+                                        <td id="current-left-calc-damageinc">null</td>
+                                        <td id="current-left-calc-totaldamage">null</td>
                                     </tr>
                                     <tr>
                                         <td><span class="bold">Right</span></td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>null</td>
+                                        <td id="current-right-calc-hpreq">null</td>
+                                        <td id="current-right-calc-hpnull">null</td>
+                                        <td id="current-right-calc-ulthp">null</td>
+                                        <td id="current-right-calc-hpperreact">null</td>
+                                        <td id="current-right-calc-totalhits">null</td>
+                                        <td id="current-right-calc-damageinc">null</td>
+                                        <td id="current-right-calc-totaldamage">null</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -690,15 +690,283 @@
                     <div class="simulation">
                         <h3>Simulation</h3>
                         <div id="simulation-current">
-                            <p>asdasd</p>
+
                         </div>
                     </div>
                 </div>
                 <div class="ui bottom attached tab segment" id="second-two" data-tab="second-two">
-                Second
+                    <div class="top-tab-container">
+                        <div class="status-container">
+                            <h4>Status</h4>
+                            <p id="status-p">Status: <span class="green">Pass</span></p>
+                            <p id="remaining-hp">Remaining HP:</p>
+                            <div class="overkill-container">
+                                    <table class="ui celled striped table">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Overkill</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span class="bold">Center</span></td>
+                                                <td id="wanted-overkill-center">null</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="bold">Left</span></td>
+                                                <td id="wanted-overkill-center">null</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="bold">Right</span></td>
+                                                <td id="wanted-overkill-center">null</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                        </div>
+                        <div class="statistics-container">
+                            <h4>Statistics</h4>
+                            <table class="ui celled striped table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Damage</th>
+                                        <th>Speed</th>
+                                        <th>Reactor</th>
+                                        <th>HP</th>
+                                        <th>Effective HP</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="bold">Center</span></td>
+                                        <td id="wanted-center-stats-damage">null</td>
+                                        <td id="wanted-center-stats-speed">null</td>
+                                        <td id="wanted-center-stats-reactor">null</td>
+                                        <td id="wanted-center-stats-hp">null</td>
+                                        <td id="wanted-center-stats-effhp">null</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bold">Left</span></td>
+                                        <td id="wanted-left-stats-damage">null</td>
+                                        <td id="wanted-left-stats-speed">null</td>
+                                        <td id="wanted-left-stats-reactor">null</td>
+                                        <td id="wanted-left-stats-hp">null</td>
+                                        <td id="wanted-left-stats-effhp">null</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bold">Right</span></td>
+                                        <td id="wanted-right-stats-damage">null</td>
+                                        <td id="wanted-right-stats-speed">null</td>
+                                        <td id="wanted-right-stats-reactor">null</td>
+                                        <td id="wanted-right-stats-hp">null</td>
+                                        <td id="wanted-right-stats-effhp">null</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bold">Enemy</span></td>
+                                        <td id="wanted-enemy-stats-damage">null</td>
+                                        <td id="wanted-enemy-stats-speed">null</td>
+                                        <td id="wanted-enemy-stats-reactor">null</td>
+                                        <td id="wanted-enemy-stats-hp">null</td>
+                                        <td id="wanted-enemy-stats-effhp">null</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="calculations-container">
+                            <h4>Calculations</h4>
+                            <table class="ui celled striped table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>HP Req</th>
+                                        <th>HP per Hull</th>
+                                        <th>Ulti per HP</th>
+                                        <th>HP per Reactor</th>
+                                        <th>Total Hits</th>
+                                        <th>Damage Inc</th>
+                                        <th>Total Damage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="bold">Center</span></td>
+                                        <td id="wanted-center-calc-hpreq">null</td>
+                                        <td id="wanted-center-calc-hpnull">null</td>
+                                        <td id="wanted-center-calc-ulthp">null</td>
+                                        <td id="wanted-center-calc-hpperreact">null</td>
+                                        <td id="wanted-center-calc-totalhits">null</td>
+                                        <td id="wanted-center-calc-damageinc">null</td>
+                                        <td id="wanted-center-calc-totaldamage">null</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bold">Left</span></td>
+                                        <td id="wanted-left-calc-hpreq">null</td>
+                                        <td id="wanted-left-calc-hpnull">null</td>
+                                        <td id="wanted-left-calc-ulthp">null</td>
+                                        <td id="wanted-left-calc-hpperreact">null</td>
+                                        <td id="wanted-left-calc-totalhits">null</td>
+                                        <td id="wanted-left-calc-damageinc">null</td>
+                                        <td id="wanted-left-calc-totaldamage">null</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bold">Right</span></td>
+                                        <td id="wanted-right-calc-hpreq">null</td>
+                                        <td id="wanted-right-calc-hpnull">null</td>
+                                        <td id="wanted-right-calc-ulthp">null</td>
+                                        <td id="wanted-right-calc-hpperreact">null</td>
+                                        <td id="wanted-right-calc-totalhits">null</td>
+                                        <td id="wanted-right-calc-damageinc">null</td>
+                                        <td id="wanted-right-calc-totaldamage">null</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="simulation">
+                        <h3>Simulation</h3>
+                        <div id="simulation-current">
+
+                        </div>
+                    </div>
                 </div>
                 <div class="ui bottom attached tab segment" id="third-two" data-tab="third-two" >
-                Third
+                    <div class="top-tab-container">
+                        <div class="status-container">
+                            <h4>Status</h4>
+                            <p id="status-p">Status: <span class="red">Failure</span></p>
+                            <p id="remaining-hp">Remaining HP:</p>
+                            <div class="overkill-container">
+                                    <table class="ui celled striped table">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Overkill</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span class="bold">Center</span></td>
+                                                <td id="calc-overkill-center">null</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="bold">Left</span></td>
+                                                <td id="calc-overkill-center">null</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="bold">Right</span></td>
+                                                <td id="calc-overkill-center">null</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                        </div>
+                        <div class="statistics-container">
+                            <h4>Statistics</h4>
+                            <table class="ui celled striped table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Damage</th>
+                                        <th>Speed</th>
+                                        <th>Reactor</th>
+                                        <th>HP</th>
+                                        <th>Effective HP</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="bold">Center</span></td>
+                                        <td id="calc-center-stats-damage">null</td>
+                                        <td id="calc-center-stats-speed">null</td>
+                                        <td id="calc-center-stats-reactor">null</td>
+                                        <td id="calc-center-stats-hp">null</td>
+                                        <td id="calc-center-stats-effhp">null</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bold">Left</span></td>
+                                        <td id="calc-left-stats-damage">null</td>
+                                        <td id="calc-left-stats-speed">null</td>
+                                        <td id="calc-left-stats-reactor">null</td>
+                                        <td id="calc-left-stats-hp">null</td>
+                                        <td id="calc-left-stats-effhp">null</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bold">Right</span></td>
+                                        <td id="calc-right-stats-damage">null</td>
+                                        <td id="calc-right-stats-speed">null</td>
+                                        <td id="calc-right-stats-reactor">null</td>
+                                        <td id="calc-right-stats-hp">null</td>
+                                        <td id="calc-right-stats-effhp">null</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bold">Enemy</span></td>
+                                        <td id="calc-enemy-stats-damage">null</td>
+                                        <td id="calc-enemy-stats-speed">null</td>
+                                        <td id="calc-enemy-stats-reactor">null</td>
+                                        <td id="calc-enemy-stats-hp">null</td>
+                                        <td id="calc-enemy-stats-effhp">null</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="calculations-container">
+                            <h4>Calculations</h4>
+                            <table class="ui celled striped table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>HP Req</th>
+                                        <th>HP per Hull</th>
+                                        <th>Ulti per HP</th>
+                                        <th>HP per Reactor</th>
+                                        <th>Total Hits</th>
+                                        <th>Damage Inc</th>
+                                        <th>Total Damage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="bold">Center</span></td>
+                                        <td id="calc-center-calc-hpreq">null</td>
+                                        <td id="calc-center-calc-hpnull">null</td>
+                                        <td id="calc-center-calc-ulthp">null</td>
+                                        <td id="calc-center-calc-hpperreact">null</td>
+                                        <td id="calc-center-calc-totalhits">null</td>
+                                        <td id="calc-center-calc-damageinc">null</td>
+                                        <td id="calc-center-calc-totaldamage">null</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bold">Left</span></td>
+                                        <td id="calc-left-calc-hpreq">null</td>
+                                        <td id="calc-left-calc-hpnull">null</td>
+                                        <td id="calc-left-calc-ulthp">null</td>
+                                        <td id="calc-left-calc-hpperreact">null</td>
+                                        <td id="calc-left-calc-totalhits">null</td>
+                                        <td id="calc-left-calc-damageinc">null</td>
+                                        <td id="calc-left-calc-totaldamage">null</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="bold">Right</span></td>
+                                        <td id="calc-right-calc-hpreq">null</td>
+                                        <td id="calc-right-calc-hpnull">null</td>
+                                        <td id="calc-right-calc-ulthp">null</td>
+                                        <td id="calc-right-calc-hpperreact">null</td>
+                                        <td id="calc-right-calc-totalhits">null</td>
+                                        <td id="calc-right-calc-damageinc">null</td>
+                                        <td id="calc-right-calc-totaldamage">null</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="simulation">
+                        <h3>Simulation</h3>
+                        <div id="simulation-current">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
