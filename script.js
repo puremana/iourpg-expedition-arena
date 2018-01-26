@@ -186,9 +186,27 @@ function copyCurrentClipboard(id) {
     "Center: " + document.getElementById("current-center-weapon").value + ", " + document.getElementById("current-center-reactor").value + ", " + document.getElementById("current-center-hull").value + ", " + document.getElementById("current-center-wings").value + "\n" +
     "Left: " + document.getElementById("current-left-weapon").value + ", " + document.getElementById("current-left-reactor").value + ", " + document.getElementById("current-left-hull").value + ", " + document.getElementById("current-left-wings").value + "\n" +
     "Right: " + document.getElementById("current-right-weapon").value + ", " + document.getElementById("current-right-reactor").value + ", " + document.getElementById("current-right-hull").value + ", " + document.getElementById("current-right-wings").value;
-    //Drones are not added yet
+    //Drones
+    var dronesString = "";
+    if (document.getElementById("drone-current-reflector").value != "0")
+        dronesString = "Reflector: " + document.getElementById("drone-current-reflector").value + " ";
 
-    copyToClipboard(string);
+    if (document.getElementById("drone-current-deadly").value != "0")
+        dronesString = dronesString + "Deadly: " + document.getElementById("drone-current-deadly").value + " ";
+
+    if (document.getElementById("drone-current-penetrator").value != "0")
+        dronesString = dronesString + "Penetrator: " + document.getElementById("drone-current-penetrator").value + " ";
+        
+    if (document.getElementById("drone-current-leech").value != "0")
+        dronesString = dronesString + "Leech: " + document.getElementById("drone-current-leech").value + " ";
+
+    if (document.getElementById("drone-current-regen").value != "0")
+        dronesString = dronesString + "Regen: " + document.getElementById("drone-current-regen").value + " ";
+
+    if (document.getElementById("drone-current-absorption").value != "0")
+        dronesString = dronesString + "Absorption: " + document.getElementById("drone-current-absorption").value + " ";
+
+    copyToClipboard(string + "\n" + dronesString);
     document.getElementById(id).innerHTML = "Copied!";
     setTimeout(copiedChange, 600);
 }
@@ -197,9 +215,27 @@ function copyWantedClipboard(id) {
     "Center: " + document.getElementById("wanted-center-weapon").value + ", " + document.getElementById("wanted-center-reactor").value + ", " + document.getElementById("wanted-center-hull").value + ", " + document.getElementById("wanted-center-wings").value + "\n" +
     "Left: " + document.getElementById("wanted-left-weapon").value + ", " + document.getElementById("wanted-left-reactor").value + ", " + document.getElementById("wanted-left-hull").value + ", " + document.getElementById("wanted-left-wings").value + "\n" +
     "Right: " + document.getElementById("wanted-right-weapon").value + ", " + document.getElementById("wanted-right-reactor").value + ", " + document.getElementById("wanted-right-hull").value + ", " + document.getElementById("wanted-right-wings").value;
-    //Drones are not added yet
+    //Drones
+    var dronesString = "";
+    if (document.getElementById("drone-wanted-reflector").value != "0")
+        dronesString = "Reflector: " + document.getElementById("drone-wanted-reflector").value + " ";
 
-    copyToClipboard(string);
+    if (document.getElementById("drone-wanted-deadly").value != "0")
+        dronesString = dronesString + "Deadly: " + document.getElementById("drone-wanted-deadly").value + " ";
+
+    if (document.getElementById("drone-wanted-penetrator").value != "0")
+        dronesString = dronesString + "Penetrator: " + document.getElementById("drone-wanted-penetrator").value + " ";
+        
+    if (document.getElementById("drone-wanted-leech").value != "0")
+        dronesString = dronesString + "Leech: " + document.getElementById("drone-wanted-leech").value + " ";
+
+    if (document.getElementById("drone-wanted-regen").value != "0")
+        dronesString = dronesString + "Regen: " + document.getElementById("drone-wanted-regen").value + " ";
+
+    if (document.getElementById("drone-wanted-absorption").value != "0")
+        dronesString = dronesString + "Absorption: " + document.getElementById("drone-wanted-absorption").value + " ";
+
+    copyToClipboard(string + "\n" + dronesString);
     document.getElementById(id).innerHTML = "Copied!";
     setTimeout(copiedChange, 600);
 }
