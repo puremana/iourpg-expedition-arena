@@ -134,7 +134,7 @@ nav li {
     font-style: italic;
 }
 textarea {
-    overflow: auto; 
+    overflow: hidden; 
     line-height: 1em;
     font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
     height: 40px;
@@ -154,4 +154,7 @@ textarea:focus {
 }
 textarea::placeholder {
     color: #BEBEBE;
+}
+.info-container {
+    margin-bottom: 50px;
 }

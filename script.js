@@ -1,6 +1,66 @@
 //Expedition Calculations
 //Global Variables
 
+//Calculate Button
+function arenaLevelCalculate() {
+    document.getElementById("arenaLevelButton").className = "ui button blue loading";
+    var level = document.getElementById("arenaLevelInput").value;
+    var globalDamage = (document.getElementById("bonus-totalDMG").value / 100);
+    var globalHP = (document.getElementById("bonus-totalHP").value / 100);
+
+    //Damage Current
+    var currentDamageCenter = Math.ceil(((10 + 2.5 * document.getElementById("current-center-weapon").value) * (1 + Math.floor(document.getElementById("current-center-weapon").value / 5) / 20) * globalDamage) * 100) / 100;
+    var currentDamageLeft = Math.ceil(((10 + 2.5 * document.getElementById("current-left-weapon").value) * (1 + Math.floor(document.getElementById("current-left-weapon").value / 5) / 20) * globalDamage) * 100) / 100;
+    var currentDamageRight = Math.ceil(((10 + 2.5 * document.getElementById("current-right-weapon").value) * (1 + Math.floor(document.getElementById("current-right-weapon").value / 5) / 20) * globalDamage) * 100) / 100;
+    var currentDamageEnemy = Math.ceil(((10 + 2.5 * (level - 1)) * (1 + Math.floor((level - 1) / 5) / 20)) * 100) / 100;
+
+    document.getElementById("current-center-stats-damage").innerHTML = currentDamageCenter;
+    document.getElementById("current-left-stats-damage").innerHTML = currentDamageLeft;
+    document.getElementById("current-right-stats-damage").innerHTML = currentDamageRight;
+    document.getElementById("current-enemy-stats-damage").innerHTML = currentDamageEnemy;
+
+    //Speed Current
+    var currentSpeedCenter = Math.round((10 + 0.8 * document.getElementById("current-center-wings").value) * (1 + Math.floor(document.getElementById("current-center-wings").value / 5) / 20) * 100) / 100;
+    var currentSpeedLeft = Math.round((10 + 0.8 * document.getElementById("current-left-wings").value) * (1 + Math.floor(document.getElementById("current-left-wings").value / 5) / 20) * 100) / 100;
+    var currentSpeedRight = Math.round((10 + 0.8 * document.getElementById("current-right-wings").value) * (1 + Math.floor(document.getElementById("current-right-wings").value / 5) / 20) * 100) / 100;
+    var currentSpeedEnemy = Math.round((10 + 0.8 * (level - 1)) * (1 + Math.floor((level - 1) / 5) / 20) * 100) / 100;
+
+    document.getElementById("current-center-stats-speed").innerHTML = currentSpeedCenter;
+    document.getElementById("current-left-stats-speed").innerHTML = currentSpeedLeft;
+    document.getElementById("current-right-stats-speed").innerHTML = currentSpeedRight;
+    document.getElementById("current-enemy-stats-speed").innerHTML = currentSpeedEnemy;
+
+    //Reactor Current
+    var currentReactorCenter = Math.round((0 + 10 * document.getElementById("current-center-reactor").value) * (1 + Math.floor(document.getElementById("current-center-reactor").value / 5) / 20) * 100) / 100;
+    var currentReactorLeft = Math.round((0 + 10 * document.getElementById("current-left-reactor").value) * (1 + Math.floor(document.getElementById("current-left-reactor").value / 5) / 20) * 100) / 100;
+    var currentReactorRight = Math.round((0 + 10 * document.getElementById("current-right-reactor").value) * (1 + Math.floor(document.getElementById("current-right-reactor").value / 5) / 20) * 100) / 100;
+    var currentReactorEnemy = Math.round((0 + 10 * (level - 1)) * (1 + Math.floor((level - 1) / 5) / 20) * 100) / 100;
+
+    document.getElementById("current-center-stats-reactor").innerHTML = currentReactorCenter;
+    document.getElementById("current-left-stats-reactor").innerHTML = currentReactorLeft;
+    document.getElementById("current-right-stats-reactor").innerHTML = currentReactorRight;
+    document.getElementById("current-enemy-stats-reactor").innerHTML = currentReactorEnemy;
+
+    //HP Current - KEEPING THE DECIMAL VERSION OF HP
+    var currentHPCenter = ((60 + 20 * document.getElementById("current-center-hull").value) * (1 + Math.floor(document.getElementById("current-center-hull").value / 5) / 20) * globalHP);
+    var currentHPLeft = ((60 + 20 * document.getElementById("current-left-hull").value) * (1 + Math.floor(document.getElementById("current-left-hull").value / 5) / 20) * globalHP);
+    var currentHPRight = ((60 + 20 * document.getElementById("current-right-hull").value) * (1 + Math.floor(document.getElementById("current-right-hull").value / 5) / 20) * globalHP);
+    var currentHPEnemy = (60 + 20 * (level - 1)) * (1 + Math.floor((level - 1) / 5) / 20);
+
+    document.getElementById("current-center-stats-hp").innerHTML = Math.round(currentHPCenter * 100) / 100;
+    document.getElementById("current-left-stats-hp").innerHTML = Math.round(currentHPLeft * 100) / 100;
+    document.getElementById("current-right-stats-hp").innerHTML = Math.round(currentHPRight * 100) / 100;
+    document.getElementById("current-enemy-stats-hp").innerHTML = Math.round(currentHPEnemy * 100) / 100;
+
+    //Effective HP
+    document.getElementById("current-center-stats-effhp").innerHTML = Math.round((currentReactorCenter + currentHPCenter) * 100) / 100;
+    document.getElementById("current-left-stats-effhp").innerHTML = Math.round((currentReactorLeft + currentHPLeft) * 100) / 100;
+    document.getElementById("current-right-stats-effhp").innerHTML = Math.round((currentReactorRight + currentHPRight) * 100) / 100;
+    document.getElementById("current-enemy-stats-effhp").innerHTML = Math.round((currentReactorEnemy + currentHPEnemy) * 100) / 100;
+
+    document.getElementById("arenaLevelButton").className = "ui button blue";
+}
+
 //Export Button
 function exportUpdate() {
     var raw = document.getElementById("exportInput").value;
@@ -81,8 +141,8 @@ var droneType = JSON.parse(droneTypeRaw);
 function updateBonusTotal() {
     var totalDMG = (1 + (document.getElementById("bonus-shipOrb").value / 100)) * (1 + (document.getElementById("bonus-trophyDMG").value / 100)) * (1 + (document.getElementById("bonus-Legendary").value / 100)) * (1 + (document.getElementById("bonus-ascDMG").value / 100)) * (1 + (document.getElementById("bonus-guildLevel").value / 100)) * (1 + (document.getElementById("bonus-academyTotal").value / 100));
     var totalHP = (1 + (document.getElementById("bonus-shipOrb").value / 100)) * (1 + (document.getElementById("bonus-trophyHP").value / 100)) * (1 + (document.getElementById("bonus-ascHP").value / 100)) * (1 + (document.getElementById("bonus-academyTotal").value / 100));
-    document.getElementById("bonus-totalDMG").value = totalDMG * 100 + "%";
-    document.getElementById("bonus-totalHP").value = totalHP * 100 + "%";
+    document.getElementById("bonus-totalDMG").value = totalDMG * 100;
+    document.getElementById("bonus-totalHP").value = totalHP * 100;
 }
 
 //Copy Builds Functions
