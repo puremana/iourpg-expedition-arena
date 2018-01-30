@@ -1,5 +1,6 @@
 //Expedition Calculations
 //Global Variables
+var upgradeCostArray = [5, 10, 15, 20, 50, 60, 70, 80, 90, 150, 165, 180, 195, 210, 300, 320, 340, 360, 380, 500, 525, 550, 575, 600, 750, 780, 810, 840, 870, 1050, 1085, 1120, 1155, 1190, 1225, 1260, 1295, 1330, 1365, 1400, 1435, 1470, 1505, 1540, 1575, 1610, 1645, 1680, 1715, 1750, 1785, 1820, 1855, 1890, 1925, 1960, 1995, 2030, 2065, 2100, 2135, 2170, 2205, 2240, 2275, 2310, 2345, 2380, 2415, 2450, 2485, 2520, 2555, 2590, 2625, 2660, 2695, 2730, 2765, 2800, 2835, 2870, 2905, 2940, 2975, 3010, 3045, 3080, 3115, 3150, 3185, 3220, 3255, 3290, 3325, 3360, 3395, 3430, 3465, 3500];
 
 //Calculate Button
 function arenaLevelCalculate() {
@@ -53,10 +54,166 @@ function arenaLevelCalculate() {
     document.getElementById("current-enemy-stats-hp").innerHTML = Math.round(currentHPEnemy * 100) / 100;
 
     //Effective HP
-    document.getElementById("current-center-stats-effhp").innerHTML = Math.round((currentReactorCenter + currentHPCenter) * 100) / 100;
-    document.getElementById("current-left-stats-effhp").innerHTML = Math.round((currentReactorLeft + currentHPLeft) * 100) / 100;
-    document.getElementById("current-right-stats-effhp").innerHTML = Math.round((currentReactorRight + currentHPRight) * 100) / 100;
-    document.getElementById("current-enemy-stats-effhp").innerHTML = Math.round((currentReactorEnemy + currentHPEnemy) * 100) / 100;
+    var curCenterTotalHP = (currentReactorCenter + currentHPCenter);
+    var curLeftTotalHP = (currentReactorLeft + currentHPLeft);
+    var curRightTotalHP = (currentReactorRight + currentHPRight);
+    var curEnemyTotalHP = (currentReactorEnemy + currentHPEnemy);
+
+    document.getElementById("current-center-stats-effhp").innerHTML = Math.round(curCenterTotalHP * 100) / 100;
+    document.getElementById("current-left-stats-effhp").innerHTML = Math.round(curLeftTotalHP * 100) / 100;
+    document.getElementById("current-right-stats-effhp").innerHTML = Math.round(curRightTotalHP * 100) / 100;
+    document.getElementById("current-enemy-stats-effhp").innerHTML = Math.round(curEnemyTotalHP * 100) / 100;
+
+    //Simulation
+    var speedArray = [currentSpeedCenter, currentSpeedLeft, currentSpeedRight, currentSpeedEnemy];
+    var tickSpeed = Math.max.apply(null, speedArray) * 10;
+    var tickSpeedP = document.createElement("p");
+    tickSpeedP.innerHTML = "Tick Speed: " + tickSpeed.toFixed(2);
+    var simCurrent = document.getElementById("simulation-current");
+    simCurrent.innerHTML = "";
+    simCurrent.appendChild(tickSpeedP);
+
+    //Loop through till dead
+    var end = false;
+    var round = 1;
+    var tick = 0;
+    var enemyTick = 0;
+    var centerTick = tickSpeed;
+    var leftTick = 0;
+    var rightTick = 0;
+    var curCenterFightHP = curCenterTotalHP;
+    var curLeftFightHP = curLeftTotalHP;
+    var curRightFightHP = curRightTotalHP;
+    var curEnemyFightHP = curEnemyTotalHP;
+    while(end == false) {   
+        if (enemyTick >= tickSpeed) {
+            enemyTick = enemyTick - tickSpeed;
+            if (curCenterFightHP > 0) {
+                curCenterFightHP = curCenterFightHP - currentDamageEnemy;
+                var p = document.createElement("p");
+                p.className = "enemy-ship";
+                p.innerHTML = "<span class='bold'>" + round + ".</span>" + " Enemy ship damages center for <span class='bold'>" + currentDamageEnemy.toFixed(2) + "</span>. (" + curCenterFightHP.toFixed(2) + "/" + curCenterTotalHP.toFixed(2) + ")";
+                simCurrent.appendChild(p);
+                if (curCenterFightHP <= 0) {
+                    var p1 = document.createElement("p");
+                    p1.className = "enemy-ship";
+                    p1.innerHTML = "<span class='bold'>Center Ship dies.</span>";
+                    simCurrent.appendChild(p1);
+                }
+            }
+            else if (curLeftFightHP > 0) {
+                curLeftFightHP = curLeftFightHP - currentDamageEnemy;
+                var p = document.createElement("p");
+                p.className = "enemy-ship";
+                p.innerHTML = "<span class='bold'>" + round + ".</span>" + " Enemy ship damages left for <span class='bold'>" + currentDamageEnemy.toFixed(2) + "</span>. (" + curLeftFightHP.toFixed(2) + "/" + curLeftTotalHP.toFixed(2) + ")";
+                simCurrent.appendChild(p);
+                if (curLeftFightHP <= 0) {
+                    var p1 = document.createElement("p");
+                    p1.className = "enemy-ship";
+                    p1.innerHTML = "<span class='bold'>Left Ship dies.</span>";
+                    simCurrent.appendChild(p1);
+                }
+            }
+            else if (curRightFightHP > 0) {
+                curRightFightHP = curRightFightHP - currentDamageEnemy;
+                var p = document.createElement("p");
+                p.className = "enemy-ship";
+                p.innerHTML = "<span class='bold'>" + round + ".</span>" + " Enemy ship damages right for <span class='bold'>" + currentDamageEnemy.toFixed(2) + "</span>. (" + curRightFightHP.toFixed(2) + "/" + curRightTotalHP.toFixed(2) + ")";
+                simCurrent.appendChild(p);
+                if (curRightFightHP <= 0) {
+                    var p1 = document.createElement("p");
+                    p1.className = "enemy-ship";
+                    p1.innerHTML = "<span class='bold'>Right Ship dies.</span>";
+                    simCurrent.appendChild(p1);
+                }
+            }
+            if ((curCenterFightHP <= 0) && (curLeftFightHP <= 0) && (curRightFightHP <= 0)) {
+                end = true;
+            }
+            round++;
+        }
+        if ((centerTick >= tickSpeed) && (curCenterFightHP > 0)) {
+            centerTick = centerTick - tickSpeed;
+            curEnemyFightHP = curEnemyFightHP - currentDamageCenter;
+            var p = document.createElement("p");
+            p.className = "your-ship";
+            p.innerHTML = "<span class='bold'>" + round + ".</span>" + " Center ship damages enemy for <span class='bold'>" + currentDamageCenter.toFixed(2) + "</span>. (" + curEnemyFightHP.toFixed(2) + "/" + curEnemyTotalHP.toFixed(2) + ")";
+            simCurrent.appendChild(p);
+            if (curEnemyFightHP <= 0) {
+                var p = document.createElement("p");
+                p.className = "your-ship";
+                p.innerHTML = "<span class='bold'>Enemy ship dies.</span>";
+                simCurrent.appendChild(p);
+                end = true;
+            }
+            //Center ship always fires first and takes speed penalty
+            if (round == 1) {               
+                centerTick = centerTick - (0.5 * tickSpeed);
+            }
+            round++;
+        }
+        if ((leftTick >= tickSpeed) && (curLeftFightHP > 0)) {
+            leftTick = leftTick - tickSpeed;
+            curEnemyFightHP = curEnemyFightHP - currentDamageLeft;
+            var p = document.createElement("p");
+            p.className = "your-ship";
+            p.innerHTML = "<span class='bold'>" + round + ".</span>" + " Left ship damages enemy for <span class='bold'>" + currentDamageLeft.toFixed(2) + "</span>. (" + curEnemyFightHP.toFixed(2) + "/" + curEnemyTotalHP.toFixed(2) + ")";
+            simCurrent.appendChild(p);
+            if (curEnemyFightHP <= 0) {
+                var p = document.createElement("p");
+                p.className = "your-ship";
+                p.innerHTML = "<span class='bold'>Enemy ship dies.</span>";
+                simCurrent.appendChild(p);
+                end = true;
+            }
+            round++;
+        }
+        if ((rightTick >= tickSpeed) && (curRightFightHP > 0)) {
+            rightTick = rightTick - tickSpeed;
+            curEnemyFightHP = curEnemyFightHP - currentDamageRight;
+            var p = document.createElement("p");
+            p.className = "your-ship";
+            p.innerHTML = "<span class='bold'>" + round + ".</span>" + " Right ship damages enemy for <span class='bold'>" + currentDamageLeft.toFixed(2) + "</span>. (" + curEnemyFightHP.toFixed(2) + "/" + curEnemyTotalHP.toFixed(2) + ")";
+            simCurrent.appendChild(p);
+            if (curEnemyFightHP <= 0) {
+                var p = document.createElement("p");
+                p.className = "your-ship";
+                p.innerHTML = "<span class='bold'>Enemy ship dies.</span>";
+                simCurrent.appendChild(p);
+                end = true;
+            }
+            round++;
+        }
+        enemyTick = enemyTick + currentSpeedEnemy;
+        centerTick = centerTick + currentSpeedCenter;
+        leftTick = leftTick + currentSpeedLeft;
+        rightTick = rightTick + currentSpeedRight;
+        tick++;
+    }
+    //Once simulation has finished
+    if (curEnemyFightHP > 0) {
+        var h3 = document.createElement("h3");
+        h3.innerHTML = "<span class='red'>Failure</span>";
+        simCurrent.appendChild(h3);
+        var p1 = document.createElement("p");
+        p1.innerHTML = "Enemy ship remaining health: " + curEnemyFightHP;
+        simCurrent.appendChild(p1);
+        document.getElementById("status-p-current").innerHTML = "Status: <span class='red'>Failure</span>";
+        document.getElementById("remaining-hp-current").innerHTML = "Remaining HP: " + curEnemyFightHP.toFixed(2);
+    }
+    else {
+        var h3 = document.createElement("h3");
+        h3.innerHTML = "<span class='green'>Success</span>";
+        simCurrent.appendChild(h3);
+        var p1 = document.createElement("p");
+        p1.innerHTML = "Remaining ship health. Center: " + curCenterFightHP + ", Left: " + curLeftFightHP + ", Right: " + curRightFightHP;
+        simCurrent.appendChild(p1);
+        document.getElementById("status-p-current").innerHTML = "Status: <span class='green'>Success</span>";
+        document.getElementById("remaining-hp-current").innerHTML = "Remaining HP: " + curEnemyFightHP.toFixed(2);
+    }
+    var pEnd = document.createElement("p");
+    pEnd.innerHTML = "Total Rounds: " + (round - 1) + ", Total Ticks: " + tick;
+    simCurrent.appendChild(pEnd);
 
     document.getElementById("arenaLevelButton").className = "ui button blue";
 }
@@ -328,9 +485,6 @@ function copiedChange(id) {
         document.getElementById("clipboardWantedButton").innerHTML = "Copy to Clipboard";
     }
 }
-//Calculate Button
-
-
 
 //Random Helper Functions
 function setShip(type, position, weapon, reactor, hull, wings) {

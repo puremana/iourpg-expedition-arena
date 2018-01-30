@@ -158,3 +158,9 @@ textarea::placeholder {
 .info-container {
     margin-bottom: 50px;
 }
+.enemy-ship {
+    text-align: right;
+}
+.your-ship {
+    text-align: left;
+}
