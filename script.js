@@ -32,9 +32,14 @@ function arenaLevelCalculate() {
     document.getElementById("current-enemy-stats-speed").innerHTML = currentSpeedEnemy;
 
     //Reactor Current
-    var currentReactorCenter = Math.round((0 + 10 * document.getElementById("current-center-reactor").value) * (1 + Math.floor(document.getElementById("current-center-reactor").value / 5) / 20) * 100) / 100;
-    var currentReactorLeft = Math.round((0 + 10 * document.getElementById("current-left-reactor").value) * (1 + Math.floor(document.getElementById("current-left-reactor").value / 5) / 20) * 100) / 100;
-    var currentReactorRight = Math.round((0 + 10 * document.getElementById("current-right-reactor").value) * (1 + Math.floor(document.getElementById("current-right-reactor").value / 5) / 20) * 100) / 100;
+    var curCenterReactLevel = document.getElementById("current-center-reactor").value;
+    var curLeftReactLevel = document.getElementById("current-left-reactor").value;
+    var curRightReactLevel = document.getElementById("current-right-reactor").value;
+    //var curCenterReactLevel = document.getElementById("current-center-reactor").value;
+
+    var currentReactorCenter = Math.round((0 + 10 * curCenterReactLevel) * (1 + Math.floor(curCenterReactLevel / 5) / 20) * 100) / 100;
+    var currentReactorLeft = Math.round((0 + 10 * curLeftReactLevel) * (1 + Math.floor(curLeftReactLevel / 5) / 20) * 100) / 100;
+    var currentReactorRight = Math.round((0 + 10 * curRightReactLevel) * (1 + Math.floor(curRightReactLevel / 5) / 20) * 100) / 100;
     var currentReactorEnemy = Math.round((0 + 10 * (level - 1)) * (1 + Math.floor((level - 1) / 5) / 20) * 100) / 100;
 
     document.getElementById("current-center-stats-reactor").innerHTML = currentReactorCenter;
@@ -81,18 +86,39 @@ function arenaLevelCalculate() {
     var centerTick = tickSpeed;
     var leftTick = 0;
     var rightTick = 0;
+    //HP
     var curCenterFightHP = curCenterTotalHP;
     var curLeftFightHP = curLeftTotalHP;
     var curRightFightHP = curRightTotalHP;
     var curEnemyFightHP = curEnemyTotalHP;
+    //Reactor
+    var curCenterFightReactor = currentReactorCenter;
+    var curLeftFightReactor = currentReactorLeft;
+    var curRightFightReactor = currentReactorRight;
+    var curEnemyFightReactor = currentReactorEnemy;
+
+    //Drones
+    var droneShieldAbs = 0;
+
     while(end == false) {   
         if (enemyTick >= tickSpeed) {
             enemyTick = enemyTick - tickSpeed;
             if (curCenterFightHP > 0) {
-                curCenterFightHP = curCenterFightHP - currentDamageEnemy;
+                //(1+(Reactor Level-1)*0.02) / (1+Shield Pen-- if enemy)
+                var damage;
+                if (curCenterFightReactor > 0) {
+                    var reactorDmgPenalty  = (1 + curCenterReactLevel * .02 + droneShieldAbs);
+                    damage = currentDamageEnemy - ((reactorDmgPenalty - 1) * (curCenterFightHP - currentHPCenter));
+                    curCenterFightReactor = curCenterFightReactor - damage;
+                    curCenterFightHP = curCenterFightHP - damage;
+                } 
+                else {
+                    damage = currentDamageEnemy;
+                    curCenterFightHP = curCenterFightHP - damage;
+                }
                 var p = document.createElement("p");
                 p.className = "enemy-ship";
-                p.innerHTML = "<span class='bold'>" + round + ".</span>" + " Enemy ship damages center for <span class='bold'>" + currentDamageEnemy.toFixed(2) + "</span>. (" + curCenterFightHP.toFixed(2) + "/" + curCenterTotalHP.toFixed(2) + ")";
+                p.innerHTML = "<span class='bold'>" + round + ".</span>" + " Enemy ship damages center for <span class='bold'>" + damage.toFixed(2) + "</span>. (" + curCenterFightHP.toFixed(2) + "/" + curCenterTotalHP.toFixed(2) + ")";
                 simCurrent.appendChild(p);
                 if (curCenterFightHP <= 0) {
                     var p1 = document.createElement("p");
@@ -102,10 +128,20 @@ function arenaLevelCalculate() {
                 }
             }
             else if (curLeftFightHP > 0) {
-                curLeftFightHP = curLeftFightHP - currentDamageEnemy;
+                var damage;
+                if (curLeftFightReactor > 0) {
+                    var reactorDmgPenalty  = (1 + curLeftReactLevel * .02 + droneShieldAbs);
+                    damage = currentDamageEnemy - ((reactorDmgPenalty - 1) * (curLeftFightHP - currentHPLeft));
+                    curLeftFightReactor = curLeftFightReactor - damage;
+                    curLeftFightHP = curLeftFightHP - damage;
+                } 
+                else {
+                    damage = currentDamageEnemy;
+                    curLeftFightHP = curLeftFightHP - damage;
+                }
                 var p = document.createElement("p");
                 p.className = "enemy-ship";
-                p.innerHTML = "<span class='bold'>" + round + ".</span>" + " Enemy ship damages left for <span class='bold'>" + currentDamageEnemy.toFixed(2) + "</span>. (" + curLeftFightHP.toFixed(2) + "/" + curLeftTotalHP.toFixed(2) + ")";
+                p.innerHTML = "<span class='bold'>" + round + ".</span>" + " Enemy ship damages left for <span class='bold'>" + damage.toFixed(2) + "</span>. (" + curLeftFightHP.toFixed(2) + "/" + curLeftTotalHP.toFixed(2) + ")";
                 simCurrent.appendChild(p);
                 if (curLeftFightHP <= 0) {
                     var p1 = document.createElement("p");
@@ -115,10 +151,20 @@ function arenaLevelCalculate() {
                 }
             }
             else if (curRightFightHP > 0) {
-                curRightFightHP = curRightFightHP - currentDamageEnemy;
+                var damage;
+                if (curRightFightReactor > 0) {
+                    var reactorDmgPenalty  = (1 + curRightReactLevel * .02 + droneShieldAbs);
+                    damage = currentDamageEnemy - ((reactorDmgPenalty - 1) * (curRightFightHP - currentHPRight));
+                    curRightFightReactor = curRightFightReactor - damage;
+                    curRightFightHP = curRightFightHP - damage;
+                } 
+                else {
+                    damage = currentDamageEnemy;
+                    curRightFightHP = curRightFightHP - damage;
+                }
                 var p = document.createElement("p");
                 p.className = "enemy-ship";
-                p.innerHTML = "<span class='bold'>" + round + ".</span>" + " Enemy ship damages right for <span class='bold'>" + currentDamageEnemy.toFixed(2) + "</span>. (" + curRightFightHP.toFixed(2) + "/" + curRightTotalHP.toFixed(2) + ")";
+                p.innerHTML = "<span class='bold'>" + round + ".</span>" + " Enemy ship damages right for <span class='bold'>" + damage.toFixed(2) + "</span>. (" + curRightFightHP.toFixed(2) + "/" + curRightTotalHP.toFixed(2) + ")";
                 simCurrent.appendChild(p);
                 if (curRightFightHP <= 0) {
                     var p1 = document.createElement("p");
@@ -134,10 +180,21 @@ function arenaLevelCalculate() {
         }
         if ((centerTick >= tickSpeed) && (curCenterFightHP > 0)) {
             centerTick = centerTick - tickSpeed;
-            curEnemyFightHP = curEnemyFightHP - currentDamageCenter;
+            curEnemyFightHP = curEnemyFightHP - damage;
+            // var damage;
+            // if (curEnemyFightReactor > 0) {
+            //     var reactorDmgPenalty  = (1 + (level - 1) * .02);
+            //     damage = currentDamageCenter - ((reactorDmgPenalty - 1) * (curEnemyFightHP - currentHPEnemy));
+            //     curEnemyFightReactor = curEnemyFightReactor - damage;
+            //     curEnemyFightHP = curEnemyFightHP - damage;
+            // } 
+            // else {
+            //     damage = currentDamageCenter;
+            //     curEnemyFightHP = curEnemyFightHP - damage;
+            // }
             var p = document.createElement("p");
             p.className = "your-ship";
-            p.innerHTML = "<span class='bold'>" + round + ".</span>" + " Center ship damages enemy for <span class='bold'>" + currentDamageCenter.toFixed(2) + "</span>. (" + curEnemyFightHP.toFixed(2) + "/" + curEnemyTotalHP.toFixed(2) + ")";
+            p.innerHTML = "<span class='bold'>" + round + ".</span>" + " Center ship damages enemy for <span class='bold'>" + damage.toFixed(2) + "</span>. (" + curEnemyFightHP.toFixed(2) + "/" + curEnemyTotalHP.toFixed(2) + ")";
             simCurrent.appendChild(p);
             if (curEnemyFightHP <= 0) {
                 var p = document.createElement("p");
